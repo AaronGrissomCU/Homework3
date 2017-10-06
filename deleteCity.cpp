@@ -1,24 +1,29 @@
 city* deleteCity(city *head, string cityName)
 {
-    city* del = NULL;
+    city* del = head;
     city* prev = head;
     
-    while (prev->next->name != cityName && prev != NULL)
+    while (del->name != cityName && del != NULL)
     {
-        prev = prev->next;
+        del = del->next;
     }
     
-    if (prev == NULL)
+    if (del == NULL)
     {
         cout << "City does not exist." << endl;
         return head;
     }
-    
     else
     {
-        del = prev->next;
+        while (prev->next != del)
+        {
+            prev = prev->next;
+        }
+        
         prev->next = del->next;
         
         delete del;
+        
+        return head;
     }
 }
