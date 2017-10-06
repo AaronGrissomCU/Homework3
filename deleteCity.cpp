@@ -15,15 +15,24 @@ city* deleteCity(city *head, string cityName)
     }
     else
     {
-        while (prev->next != del)
+        if (del != head)
         {
-            prev = prev->next;
+            while (prev->next != del)
+            {
+                prev = prev->next;
+            }
+        
+            prev->next = del->next;
+        
+            delete del;
+        
+            return head;
         }
-        
-        prev->next = del->next;
-        
-        delete del;
-        
-        return head;
+        else
+        {
+            head = del->next;
+            delete del;
+            return head;
+        }
     }
 }
