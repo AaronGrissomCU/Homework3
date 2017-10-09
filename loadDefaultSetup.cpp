@@ -1,46 +1,46 @@
 city* loadDefaultSetup(city *head)
 {
-    city* temp = NULL;
-	city* prev = NULL;
-	int counter = 0;
+	city* prev= NULL;
 	
-	do
+	for (int c = 0; c < 6; c++)
 	{
-		temp = new city;
-		switch (counter)
+		city* newCity = new city;
+		switch(c)
 		{
 			case 0:
-				temp->name = "Los Angeles";
+				newCity->name = "Los Angeles";
 				break;
 			case 1:
-				temp->name = "Phoenix";
+				newCity->name = "Phoenix";
 				break;
 			case 2:
-				temp->name = "Denver";
+				newCity->name = "Denver";
 				break;
 			case 3:
-				temp->name = "Dallas";
+				newCity->name = "Dallas";
 				break;
 			case 4:
-				temp->name = "Atlanta";
+				newCity->name = "Atlanta";
 				break;
 			case 5:
-				temp->name = "New York";
+				newCity->name = "New York";
 				break;
 		}
-		temp->next = NULL;
-		temp->numberMessages = 0;
-		temp->message;
+		newCity->next = NULL;
+		newCity->numberMessages = 0;
 		
-		if (counter == 1)
+		if (c == 0)
 		{
-			head = temp;
-			prev = temp;
+			head = newCity;
 		}
 		else
 		{
-			prev->next = temp;
-			prev = temp;
+			prev = newCity;
 		}
-	} while (counter < 5);
+		
+		if (prev != NULL)
+		{
+			prev->next = newCity;
+		}
+	}
 }
