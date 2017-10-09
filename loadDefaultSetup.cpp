@@ -1,46 +1,33 @@
 city* loadDefaultSetup(city *head)
 {
-	city* prev= NULL;
-	
-	for (int c = 0; c < 6; c++)
-	{
-		city* newCity = new city;
-		switch(c)
-		{
-			case 0:
-				newCity->name = "Los Angeles";
-				break;
-			case 1:
-				newCity->name = "Phoenix";
-				break;
-			case 2:
-				newCity->name = "Denver";
-				break;
-			case 3:
-				newCity->name = "Dallas";
-				break;
-			case 4:
-				newCity->name = "Atlanta";
-				break;
-			case 5:
-				newCity->name = "New York";
-				break;
-		}
-		newCity->next = NULL;
-		newCity->numberMessages = 0;
+		city* LosAngeles = new city;
+		city* Phoenix = new city;
+		city* Denver = new city;
+		city* Dallas = new city;
+		city* Atlanta = new city;
+		city* NewYork = new city;
 		
-		if (c == 0)
-		{
-			head = newCity;
-		}
-		else
-		{
-			prev = newCity;
-		}
+		LosAngeles->name = "Los Angeles";
+		Phoenix->name = "Phoenix";
+		Denver->name = "Denver";
+		Dallas->name = "Dallas";	
+		Atlanta->name = "Atlanta";
+		NewYork->name = "New York";
 		
-		if (prev != NULL)
-		{
-			prev->next = newCity;
-		}
-	}
+		head = LosAngeles;
+		LosAngeles->next = Phoenix;
+		Phoenix->next = Denver;
+		Denver->next = Dallas;
+		Dallas->next = Atlanta;
+		Atlanta->next = NewYork;
+		NewYork->next = NULL;
+		
+		LosAngeles->numberMessages = 0;
+		Phoenix->numberMessages = 0;
+		Denver->numberMessages = 0;
+		Dallas->numberMessages = 0;	
+		Atlanta->numberMessages = 0;
+		NewYork->numberMessages = 0;
+		
+		return head;
 }
