@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
 					// find the node containing prevCity
 					city* tmp = NULL;
 					if (prevCityName != "First")
-						tmp = searchNetwork(head, newCityName);
+						tmp = searchNetwork(head, prevCityName);
 					
 					//add the new node
 					head = addCity(head, tmp, newCityName);
@@ -196,7 +196,7 @@ int main(int argc, char* argv[])
   */
 city *searchNetwork(city *ptr, string cityName)
 {
-    do
+    while (ptr != NULL)
     {
         if (ptr->name == cityName)
         {
@@ -206,8 +206,9 @@ city *searchNetwork(city *ptr, string cityName)
         {
             ptr = ptr->next;
         }
-    }while (ptr != NULL);
-    
+    }	
+	
+	cout << "did not find city" << endl;
     return ptr;
         
 }
